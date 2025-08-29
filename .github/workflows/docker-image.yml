@@ -14,6 +14,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Set current date as env variable
+        run: echo "DATE_TAG=$(date +'%Y%m%d-%H%M%S')" >> $GITHUB_ENV
+
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
@@ -27,4 +30,4 @@ jobs:
           push: true
           tags: |
             thecore07/kurssystem_frontend:latest
-            thecore07/kurssystem_frontend:${{ github.sha }}
+            thecore07/kurssystem_frontend:${{ env.DATE_TAG }}
