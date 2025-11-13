@@ -4,7 +4,9 @@
 function Dashboard() {
     return (
         <>
-            Dashboard Page
+            <div className="bg-red-600">
+
+            </div>
         </>
     );
 }
