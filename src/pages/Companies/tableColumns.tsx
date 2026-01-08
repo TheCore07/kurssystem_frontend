@@ -1,5 +1,5 @@
 import type { ColumnDef } from "@tanstack/react-table";
-import type { companyType } from "@/types/company.type";
+import type { CompanyType } from "@/types/company.type";
 import { Button } from "@/components/ui/button";
 import {
     DropdownMenu,
@@ -12,9 +12,9 @@ import {
 import { MoreHorizontal, Pencil, Trash } from "lucide-react";
 
 export const columns = (
-    onEdit: (project: companyType) => void,
-    onDelete: (project: companyType) => void
-): ColumnDef<companyType>[] => [
+    onEdit: (project: CompanyType) => void,
+    onDelete: (project: CompanyType) => void
+): ColumnDef<CompanyType>[] => [
     {
         accessorKey: "name",
         header: "Name",
