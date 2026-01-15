@@ -4,6 +4,7 @@ import Layout from "@/pages/layout.tsx";
 import {ThemeProvider} from "@/components/theme/theme-provider.tsx";
 import NotFound from "@/pages/NotFound.tsx";
 import Companies from "@/pages/Companies/Companies.tsx";
+import Participants from "@/pages/Participants/Participants.tsx";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
               <Route path="/" element={<Layout/>} >
                   <Route index element={<Dashboard/>} />
                   <Route path="/companies" element={<Companies/>} />
+                  <Route path="/participants" element={<Participants/>} />
               </Route>
 
               <Route path="*" element={<NotFound/>} />

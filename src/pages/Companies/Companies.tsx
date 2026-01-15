@@ -96,9 +96,9 @@ export default function Companies() {
                 <DialogContent className="sm:max-w-[450px] bg-gray-800 text-gray-100 border border-gray-700 rounded-xl shadow-lg">
                     <form className="grid gap-4" onSubmit={handleCreate}>
                         <DialogHeader>
-                            <DialogTitle>Neues Projekt</DialogTitle>
+                            <DialogTitle>Neues Firma</DialogTitle>
                             <DialogDescription>
-                                Erstelle ein neues Projekt.
+                                Lege eine neue Firma an.
                             </DialogDescription>
                         </DialogHeader>
 
@@ -110,7 +110,7 @@ export default function Companies() {
                                 onChange={(e) =>
                                     setNewCompany({...newCompany, name: e.target.value})
                                 }
-                                placeholder="Kurzer Name"
+                                placeholder="Name"
                                 required
                             />
                         </div>
@@ -167,12 +167,12 @@ export default function Companies() {
                             className="grid gap-4"
                         >
                             <DialogHeader>
-                                <DialogTitle>Projekt bearbeiten</DialogTitle>
-                                <DialogDescription>Bearbeiten Sie dieses Projekt</DialogDescription>
+                                <DialogTitle>Firma bearbeiten</DialogTitle>
+                                <DialogDescription>Bearbeiten Sie diese Firma</DialogDescription>
                             </DialogHeader>
 
                             <div className="grid gap-3">
-                                <Label>Titel</Label>
+                                <Label>Name</Label>
                                 <Input
                                     id="title"
                                     value={selected.name}
@@ -183,7 +183,7 @@ export default function Companies() {
                             </div>
 
                             <div className="grid gap-3">
-                                <Label>Beschreibung</Label>
+                                <Label>Addresse</Label>
                                 <Input
                                     id="description"
                                     value={selected.address}
@@ -194,7 +194,7 @@ export default function Companies() {
                             </div>
 
                             <div className="grid gap-3">
-                                <Label>Beschreibung</Label>
+                                <Label>Kommentar</Label>
                                 <Input
                                     id="description"
                                     value={selected.comment}
