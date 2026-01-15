@@ -6,10 +6,8 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 
-ARG VITE_BACKEND_URL
-ENV VITE_BACKEND_URL=$VITE_BACKEND_URL
-
 RUN npm run build
+
 
 # --- Production Stage ---
 FROM nginx:alpine
@@ -23,6 +21,10 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Copy built app
 COPY --from=build /app/dist /usr/share/nginx/html
 
+# Runtime env template
+COPY public/env.template.js /usr/share/nginx/html/env.template.js
+
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"]
+# Create env.js at container start
+CMD ["/bin/sh", "-c", "envsubst < /usr/share/nginx/html/env.template.js > /usr/share/nginx/html/env.js && nginx -g 'daemon off;'"]
