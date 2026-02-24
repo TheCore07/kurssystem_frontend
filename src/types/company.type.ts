@@ -1,12 +1,13 @@
 export type CompanyType = {
     id: string,
     name: string,
-    address: string,
-    comment: string,
+    adresse: string,
+    kommentar: string,
 };
 
 export type NewCompanyType = {
     name: string,
-    address: string,
-    comment: string,
+    adresse: string,
+    email: string,
+    kommentar: string,
 }

@@ -26,8 +26,9 @@ export default function Companies() {
 
     const [newCompany, setNewCompany] = useState<NewCompanyType>({
         name: "",
-        address: "",
-        comment: "",
+        adresse: "",
+        email: "",
+        kommentar: "",
     })
 
     const tableColumns = columns(
@@ -84,8 +85,8 @@ export default function Companies() {
     const filteredData = Array.isArray(companies)
         ? companies.filter(company =>
             company.name.toLowerCase().includes(search.toLowerCase()) ||
-            company.address.toLowerCase().includes(search.toLowerCase()) ||
-            company.comment.toLowerCase().includes(search.toLowerCase())
+            company.adresse.toLowerCase().includes(search.toLowerCase()) ||
+            company.kommentar.toLowerCase().includes(search.toLowerCase())
         )
         : [];
 
@@ -116,14 +117,27 @@ export default function Companies() {
                         </div>
 
                         <div className="grid gap-3">
-                            <Label htmlFor="description">Addresse</Label>
+                            <Label htmlFor="description">adressee</Label>
                             <Input
-                                id="address"
-                                value={newCompany.address}
+                                id="adresse"
+                                value={newCompany.adresse}
                                 onChange={(e) =>
-                                    setNewCompany({...newCompany, address: e.target.value})
+                                    setNewCompany({...newCompany, adresse: e.target.value})
                                 }
-                                placeholder="Addresse"
+                                placeholder="adressee"
+                                required
+                            />
+                        </div>
+
+                        <div className="grid gap-3">
+                            <Label htmlFor="email">Email</Label>
+                            <Input
+                                id="email"
+                                value={newCompany.email}
+                                onChange={(e) =>
+                                    setNewCompany({...newCompany, email: e.target.value})
+                                }
+                                placeholder="Email"
                                 required
                             />
                         </div>
@@ -131,10 +145,10 @@ export default function Companies() {
                         <div className="grid gap-3">
                             <Label htmlFor="description">Kommentar</Label>
                             <Input
-                                id="address"
-                                value={newCompany.comment}
+                                id="adresse"
+                                value={newCompany.kommentar}
                                 onChange={(e) =>
-                                    setNewCompany({...newCompany, comment: e.target.value})
+                                    setNewCompany({...newCompany, kommentar: e.target.value})
                                 }
                                 placeholder="Kommentar"
                                 required
@@ -183,12 +197,12 @@ export default function Companies() {
                             </div>
 
                             <div className="grid gap-3">
-                                <Label>Addresse</Label>
+                                <Label>adressee</Label>
                                 <Input
                                     id="description"
-                                    value={selected.address}
+                                    value={selected.adresse}
                                     onChange={(e) =>
-                                        setSelected({...selected, address: e.target.value})
+                                        setSelected({...selected, adresse: e.target.value})
                                     }
                                 />
                             </div>
@@ -197,9 +211,9 @@ export default function Companies() {
                                 <Label>Kommentar</Label>
                                 <Input
                                     id="description"
-                                    value={selected.comment}
+                                    value={selected.kommentar}
                                     onChange={(e) =>
-                                        setSelected({...selected, comment: e.target.value})
+                                        setSelected({...selected, kommentar: e.target.value})
                                     }
                                 />
                             </div>
