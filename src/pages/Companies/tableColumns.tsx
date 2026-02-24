@@ -20,7 +20,7 @@ export const columns = (
         header: "Name",
     },
     {
-        accessorKey: "address",
+        accessorKey: "adresse",
         header: "Addresse",
         cell: ({ getValue }) => (
             <div className="truncate max-w-[400px]">
@@ -29,7 +29,7 @@ export const columns = (
         )
     },
     {
-        accessorKey: "comment",
+        accessorKey: "kommentar",
         header: "Kommentar",
         cell: ({ getValue }) => (
             <div className="truncate max-w-[400px]">
